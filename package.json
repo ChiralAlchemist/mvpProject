@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/ChiralAlchemist/mvpProject#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "morgan": "^1.6.1",
+    "nodemon": "^1.8.1"
   }
 }
