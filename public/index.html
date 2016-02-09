@@ -14,7 +14,14 @@
     <input name ="inGameName" type="text" ng-model= "inGameName">
     <button type ='submit'> send</button>
    </form>
-  <h2> {{inGameName}}</h2>
+   <div name = "Champion Info">
+  <li ng-repeat = 'champ in champList'>
+    <div> {{makeImageUrl(champ.championName)}} </div>
+    <img src = {{makeImageUrl(champ.championName)}} >
+  </li> 
+   <h2> {{champList}}</h2>
+
+  </div>
   <img src = 'http://ddragon.leagueoflegends.com/cdn/6.2.1/img/champion/Aatrox.png'>
   <script src = "/bower_components/angular/angular.min.js"></script>
   <script src = "services.js"></script>
