@@ -1,6 +1,10 @@
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var request = require('request');
+
+
+var riotApiKey = 'ff62241d-f02d-443b-8309-c4b10a4bc446';
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -18,14 +22,22 @@ app.use(morgan('dev'));
 
 ////
 app.get('/', function (req , res){
-  console.log('sent a get reqest to /')
+  console.log('sent a get request to /')
   res.render('index'); 
   //res.send('helloWorld')
 });
 
 app.post('/', function(req, res){
-  console.log(req.body);
-
+ //console.log(req.body);
+ var sentInGameName = req.body.inGameName;
+ var makeUrl = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/"+sentInGameName+"?api_key="+riotApiKey;
+  request(makeUrl, function(err , riotRes , body){
+    if(err){
+      res.send(err);
+    }
+    //console.log(riotRes);
+    console.log(body);
+  });
   res.send("heroku")
 });
 
