@@ -30,9 +30,9 @@ app.get('/', function (req , res){
 
 app.post('/', function(req, res){
  //console.log(req.body);
-  var sentInGameName = req.body.inGameName;
+  var sentInGameName = req.body.inGameName.toLowerCase();
   var makeUrl = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/"+sentInGameName+"?api_key="+riotApiKey;
-  util.getPlayerIdAndIcon(sentInGameName,function(riotRes){
+  util.getPlayerStats(sentInGameName,function(riotRes){
     console.log(riotRes);
   });
   // request(makeUrl, function(err , riotRes , body){
