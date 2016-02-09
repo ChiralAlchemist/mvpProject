@@ -12,23 +12,28 @@
   <h1> Welcome to lolStats </h1>
   <form name ="ignSubmit" ng-submit = "sendIGN()">
     <input name ="inGameName" type="text" ng-model= "inGameName" placeholder = 'Enter Summoner Name'>
-    <select ng-model='season'>
-      <option value="2016">Season 6</option>
-      <option value="2015">Season 5</option>
-      <option value="2014">Season 4</option>
+    <select ng-model='season' placeholder = '2016'>
+      <option value="SEASON2016">Season 6</option>
+      <option value="SEASON2015">Season 5</option>
+      <option value="SEASON2014">Season 4</option>
       <option value="SEASON3">Season 3</option>
     </select>
     <button type ='submit'> send</button>
 
    </form>
-   <h1>{{season}}</h1>
-   <div name = "Champion Info">
-  <li ng-repeat = 'champ in champList'>
-    <img src = {{makeImageUrl(champ.championName)}} >
+   <!-- <h1>{{season}}</h1> -->
+   <h1>{{noSummonerFound}}</h1>
+   <div class = "ChampionInfo">
+  <div ng-repeat = 'champ in champList'>
+
+    <div class = "championInfo">
+    <div> Champion {{champ.championName}}</div>
     <div class='rankedInfo'>Ranked Games {{champ.stats.totalSessionsPlayed}} </div>
     <div class='rankedInfo'>Won {{champ.stats.totalSessionsWon}} </div>
-    <div class='rankedInfo'>Lossed {{champ.stats.totalSessionsLost}}
-  </li> 
+    <div class='rankedInfo'>Lossed {{champ.stats.totalSessionsLost}}</div>
+    <img class= 'champImg' src = {{makeImageUrl(champ.championName)}} >
+    </div>
+  </div> 
   <!--  <h2>  {{champList}}</h2> -->
 
   </div>

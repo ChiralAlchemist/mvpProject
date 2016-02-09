@@ -3,19 +3,24 @@
 angular.module('lolStats',[])
 .controller('mainController', function($scope,$http){
   $scope.inGameName = '';
-  $scope.season = 2016;
-
+  $scope.season = 'SEASON2016';
+  $scope.noSummonerFound = '';
 
   $scope.champList = [];
   var sendToSever= function(inGameName,season){
     $http({
       method: "POST",
-      url: 'http://localhost:3000/',
+      url: '/',
       data : {inGameName: inGameName, season: season}
     }).then( function(res){
-      console.log('was successful');
-      console.log(res);
-       $scope.champList = res.data;
+        console.log('was successful');
+        console.log(res);
+        if(res.data.id!=='not found'){
+          $scope.champList = res.data;
+          $scope.noSummonerFound = '';
+        } else {
+          $scope.noSummonerFound = "Could not find that Summoner. Try again.";
+        }
     }, function (err){
       console.log(err)
     });
@@ -24,6 +29,7 @@ angular.module('lolStats',[])
 
   var makeImageUrl = function (champName){
     if(champName){
+      var template2 = 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+champName+'_0.jpg';
       var template = 'http://ddragon.leagueoflegends.com/cdn/6.2.1/img/champion/'+champName+'.png';
       return template;
     }

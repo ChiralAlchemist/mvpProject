@@ -27,12 +27,13 @@ app.get('/', function (req , res){
   res.render('index'); 
   //res.send('helloWorld')
 });
-
+//
 app.post('/', function(req, res){
- //console.log(req.body);
+ console.log(req.body);
   var sentInGameName = req.body.inGameName.toLowerCase();
+  var sentSeason = req.body.season.toString();
   var makeUrl = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/"+sentInGameName+"?api_key="+riotApiKey;
-  util.getPlayerStats(sentInGameName,function(riotRes){
+  util.getPlayerStats(sentInGameName,sentSeason,function(riotRes){
     console.log(riotRes);
     res.send(riotRes);
   });
