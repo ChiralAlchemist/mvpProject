@@ -6,7 +6,7 @@ angular.module('lolStats',[])
   
   $scope.champList = [];
   var sendToSever= function(inGameName){
-    $http({
+    $https({
       method: "POST",
       url: 'https://salty-peak-44142.herokuapp.com/' , //'http://localhost:3000/',
       data : {inGameName: inGameName}
