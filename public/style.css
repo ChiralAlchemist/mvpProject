@@ -1,4 +1,11 @@
 h1 {
   font-style: italic;
   margin-bottom: 10px;
+
+
+.ng-binding {
+  float: left;
+}
+li div {
+  float:left;
 }

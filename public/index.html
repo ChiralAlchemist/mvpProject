@@ -11,18 +11,28 @@
 <body ng-controller = "mainController">
   <h1> Welcome to lolStats </h1>
   <form name ="ignSubmit" ng-submit = "sendIGN()">
-    <input name ="inGameName" type="text" ng-model= "inGameName">
+    <input name ="inGameName" type="text" ng-model= "inGameName" placeholder = 'Enter Summoner Name'>
+    <select ng-model='season'>
+      <option value="2016">Season 6</option>
+      <option value="2015">Season 5</option>
+      <option value="2014">Season 4</option>
+      <option value="SEASON3">Season 3</option>
+    </select>
     <button type ='submit'> send</button>
+
    </form>
+   <h1>{{season}}</h1>
    <div name = "Champion Info">
   <li ng-repeat = 'champ in champList'>
-    <div> {{makeImageUrl(champ.championName)}} </div>
     <img src = {{makeImageUrl(champ.championName)}} >
+    <div class='rankedInfo'>Ranked Games {{champ.stats.totalSessionsPlayed}} </div>
+    <div class='rankedInfo'>Won {{champ.stats.totalSessionsWon}} </div>
+    <div class='rankedInfo'>Lossed {{champ.stats.totalSessionsLost}}
   </li> 
-   <h2> {{champList}}</h2>
+  <!--  <h2>  {{champList}}</h2> -->
 
   </div>
-  <img src = 'http://ddragon.leagueoflegends.com/cdn/6.2.1/img/champion/Aatrox.png'>
+<!--   <img src = 'http://ddragon.leagueoflegends.com/cdn/6.2.1/img/champion/Aatrox.png'> -->
   <script src = "/bower_components/angular/angular.min.js"></script>
   <script src = "services.js"></script>
 </body>
