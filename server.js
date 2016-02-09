@@ -34,6 +34,7 @@ app.post('/', function(req, res){
   var makeUrl = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/"+sentInGameName+"?api_key="+riotApiKey;
   util.getPlayerStats(sentInGameName,function(riotRes){
     console.log(riotRes);
+    res.send(riotRes);
   });
   // request(makeUrl, function(err , riotRes , body){
   //   if(err){
@@ -43,7 +44,7 @@ app.post('/', function(req, res){
   //   console.log(body);
   // });
 
-  res.send("heroku")
+  
 });
 
 ////////////
