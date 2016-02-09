@@ -8,7 +8,7 @@ angular.module('lolStats',[])
   var sendToSever= function(inGameName){
     $http({
       method: "POST",
-      url: 'http://localhost:3000/',
+      url: 'https://salty-peak-44142.herokuapp.com/' , //'http://localhost:3000/',
       data : {inGameName: inGameName}
     }).then( function(res){
       console.log('was successful');
