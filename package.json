@@ -17,12 +17,14 @@
   },
   "homepage": "https://github.com/ChiralAlchemist/mvpProject#readme",
   "dependencies": {
+    "bluebird": "^3.2.2",
     "body-parser": "^1.14.2",
     "bower": "^1.7.7",
     "express": "^4.13.4",
     "jade": "^1.11.0",
     "morgan": "^1.6.1",
     "nodemon": "^1.8.1",
-    "request": "^2.69.0"
+    "request": "^2.69.0",
+    "request-promise": "^2.0.0"
   }
 }
