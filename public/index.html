@@ -4,11 +4,13 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <title>lolStats</title>
 
 </head>
 
 <body ng-controller = "mainController">
+  <div class="container">
   <h1> Welcome to lolStats </h1>
   <form name ="ignSubmit" ng-submit = "sendIGN()">
     <input name ="inGameName" type="text" ng-model= "inGameName" placeholder = 'Enter Summoner Name'>
@@ -23,20 +25,22 @@
    </form>
    <!-- <h1>{{season}}</h1> -->
    <h1>{{noSummonerFound}}</h1>
-   <div class = "ChampionInfo">
-  <div ng-repeat = 'champ in champList'>
+   <div class = "row">
+  <div class= "col-md-4" ng-repeat = 'champ in champList'>
 
     <div class = "championInfo">
     <div> Champion {{champ.championName}}</div>
-    <div class='rankedInfo'>Ranked Games {{champ.stats.totalSessionsPlayed}} </div>
-    <div class='rankedInfo'>Won {{champ.stats.totalSessionsWon}} </div>
-    <div class='rankedInfo'>Lossed {{champ.stats.totalSessionsLost}}</div>
+    <h5 class='rankedInfo'>Ranked Games {{champ.stats.totalSessionsPlayed}} </h5>
+    <h5 class='rankedInfo'>Won {{champ.stats.totalSessionsWon}} </h5>
+    <h5 class='rankedInfo'>Lossed {{champ.stats.totalSessionsLost}}</h5>
     <img class= 'champImg' src = {{makeImageUrl(champ.championName)}} >
     </div>
   </div> 
   <!--  <h2>  {{champList}}</h2> -->
 
   </div>
+  </div>
+
 <!--   <img src = 'http://ddragon.leagueoflegends.com/cdn/6.2.1/img/champion/Aatrox.png'> -->
   <script src = "/bower_components/angular/angular.min.js"></script>
   <script src = "services.js"></script>

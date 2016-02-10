@@ -5,6 +5,7 @@ var request = require('request');
 var bluebird = require('bluebird');
 var util = require('./helpers/utility.js');
 
+
 var riotApiKey = 'ff62241d-f02d-443b-8309-c4b10a4bc446';
 
 var app = express();
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 ///template stuff
 
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/node_modules'));
 app.set('views',__dirname + '/views');
 app.set('view engine', 'jade')
 //
