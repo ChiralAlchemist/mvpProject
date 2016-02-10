@@ -29,11 +29,11 @@
   <div class= "col-md-4" ng-repeat = 'champ in champList'>
 
     <div class = "championInfo">
-    <div> Champion {{champ.championName}}</div>
-    <h5 class='rankedInfo'>Ranked Games {{champ.stats.totalSessionsPlayed}} </h5>
-    <h5 class='rankedInfo'>Won {{champ.stats.totalSessionsWon}} </h5>
-    <h5 class='rankedInfo'>Lossed {{champ.stats.totalSessionsLost}}</h5>
-    <img class= 'champImg' src = {{makeImageUrl(champ.championName)}} >
+    <div class="row"> Champion {{champ.championName}}</div>
+    <div class='row'>Ranked Games {{champ.stats.totalSessionsPlayed}} </div>
+    <div class='row'>Won {{champ.stats.totalSessionsWon}} </div>
+    <div class='row'>Lossed {{champ.stats.totalSessionsLost}}</div>
+    <img class= 'row' src = {{makeImageUrl(champ.championName)}} >
     </div>
   </div> 
   <!--  <h2>  {{champList}}</h2> -->

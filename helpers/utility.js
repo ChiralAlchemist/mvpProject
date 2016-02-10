@@ -23,6 +23,11 @@ exports.getPlayerIdAndIcon = function (sentInGameName, idCallback){
 exports.checkMatchData= function (sentInGameName,matchCallback){
   exports.getPlayerIdAndIcon(sentInGameName, function(nameAndId){
     var matchUrl = 'https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1/'+ nameAndId.id +'?api_key=ff62241d-f02d-443b-8309-c4b10a4bc446'
+    request(matchUrl, function(err, res, matchData){
+      pMatchData = JSON.parse(matchData);
+      console.log(pMatchData);
+    })
+
   });
   
 };
